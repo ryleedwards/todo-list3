@@ -6,6 +6,7 @@ class Todo {
     this.priority = priority;
   }
 
+  // Title getters and setters
   get title() {
     return this._title;
   }
@@ -16,6 +17,7 @@ class Todo {
     this._title = newTitle;
   }
 
+  // Description getters and setters
   get description() {
     return this._description;
   }
@@ -23,6 +25,7 @@ class Todo {
     this._description = newDescription;
   }
 
+  // DueDate getters and setters
   get dueDate() {
     return this._dueDate;
   }
@@ -31,6 +34,7 @@ class Todo {
     this._dueDate = newDueDate;
   }
 
+  // Priority getters and setters
   get priority() {
     return this._priority;
   }
