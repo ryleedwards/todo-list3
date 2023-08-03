@@ -1,17 +1,43 @@
-// factory for todos
-const createTodo = ({ title, description, dueDate, priority }) => ({
-  title,
-  description,
-  dueDate,
-  priority,
-  notes,
-  checklist,
-});
+class Todo {
+  constructor() {
+    this.title = title;
+    this.description = description;
+    this.dueDate = dueDate;
+    this.priority = priority;
+  }
 
-// factory for checklist items
-const createChecklistItem = ({ item, checked }) => ({
-  item,
-  checked,
-});
+  get title() {
+    return this._title;
+  }
+  set title(newTitle) {
+    if (newTitle === '') {
+      throw 'Title cannot be empty';
+    }
+    this._title = newTitle;
+  }
 
-export { createTodo };
+  get description() {
+    return this._description;
+  }
+  set description(newDescription) {
+    this._description = newDescription;
+  }
+
+  get dueDate() {
+    return this._dueDate;
+  }
+
+  set dueDate(newDueDate) {
+    this._dueDate = newDueDate;
+  }
+
+  get priority() {
+    return this._priority;
+  }
+
+  set priority(newPriority) {
+    this._priority = newPriority;
+  }
+}
+
+export { Todo };
