@@ -3,4 +3,8 @@ import { Project } from './Project';
 import { displayController } from './DOM';
 import './style.css';
 
-displayController().testFunc();
+const myProjects = [];
+myProjects.push(new Project('My First Project'));
+
+displayController().renderInitialLayout();
+displayController().populateProjects(myProjects);
