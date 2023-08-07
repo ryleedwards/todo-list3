@@ -1,7 +1,7 @@
 import { Todo } from './Todo';
 import { Project } from './Project';
 
-function displayController() {
+const displayController = (() => {
   const renderInitialLayout = () => {
     //base container
     const container = document.createElement('div');
@@ -54,9 +54,7 @@ function displayController() {
 
   const populateTodos = (project) => {};
 
-  console.log('DISPLAY CONTROLLER CALLED');
-
   return { renderInitialLayout, populateProjects, populateTodos };
-}
+})();
 
 export { displayController };

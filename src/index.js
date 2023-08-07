@@ -6,5 +6,5 @@ import './style.css';
 const myProjects = [];
 myProjects.push(new Project('My First Project'));
 
-displayController().renderInitialLayout();
-displayController().populateProjects(myProjects);
+displayController.renderInitialLayout();
+displayController.populateProjects(myProjects);
