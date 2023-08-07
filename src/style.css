@@ -118,7 +118,7 @@ summary,
   font-size: 2rem;
 }
 
-.task-container {
+.todo-container {
   background-color: rgba(0, 0, 0, 0.363);
   display: flex;
   flex-direction: column;
@@ -127,19 +127,19 @@ summary,
   width: 80vw;
 }
 
-.task-container > div:nth-child(1) {
+.todo-container > div:nth-child(1) {
   display: flex;
   align-items: center;
   padding: 8px;
 }
 
-p.task-title {
+p.todo-title {
   font-size: 1.75rem;
   font-weight: bold;
   padding: 0 16px;
 }
 
-.task-container > div:nth-child(1) > input[type='checkbox'] {
+.todo-container > div:nth-child(1) > input[type='checkbox'] {
   height: 16px;
   width: 16px;
 }
@@ -148,12 +148,12 @@ p.priority {
   font-style: italic;
 }
 
-p.task-description {
+p.todo-description {
   font-size: 1.25rem;
   margin-left: 40px;
 }
 
-p.task-duedate {
+p.todo-duedate {
   font-size: 1.5rem;
   margin: 8px 0 0 4px;
 }
