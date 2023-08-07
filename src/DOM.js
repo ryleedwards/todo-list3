@@ -32,13 +32,21 @@ const displayController = (() => {
     mainHeader.appendChild(pActiveProjectTitle);
     pActiveProjectTitle.id = 'active-project-title';
     pActiveProjectTitle.innerText = 'Active Project'; // POTENTIALLY REMOVE IN FUTURE
+
+    const todosContainer = document.createElement('div');
+    todosContainer.classList.add('master-todo-container');
+    main.appendChild(todosContainer);
+
+    const btnAddTodo = document.createElement('button');
+    btnAddTodo.classList.add('btn', 'addTodo');
+    btnAddTodo.innerText = 'Add Todo';
+    main.appendChild(btnAddTodo);
   };
 
   const createProjectHTML = (project) => {
     const projDiv = document.createElement('div');
     projDiv.classList.add('project');
     const sideHeader = document.querySelector('.side-header');
-    console.log(sideHeader);
     sideHeader.appendChild(projDiv);
 
     const pProject = document.createElement('p');
@@ -52,7 +60,55 @@ const displayController = (() => {
     });
   };
 
-  const populateTodos = (project) => {};
+  const createTodoHTML = (todo, index) => {
+    //todo container
+    const todoContainer = document.createElement('div');
+    todoContainer.classList.add('todo-container');
+    document
+      .querySelector('div.master-todo-container')
+      .appendChild(todoContainer);
+    //todo header (incl. checkbox, todo-title, and priority)
+    const todoHeadDiv = document.createElement('div');
+    todoContainer.appendChild(todoHeadDiv);
+    //checkbox
+    const cbInput = document.createElement('input');
+    todoHeadDiv.appendChild(cbInput);
+    cbInput.type = 'checkbox';
+    cbInput.name = 'togglecomplete';
+    cbInput.id = `todo${index}`;
+    //title
+    const pTitle = document.createElement('p');
+    pTitle.classList.add('todo-title');
+    todoHeadDiv.appendChild(pTitle);
+    pTitle.innerText = todo.title;
+    //priority
+    const pPriority = document.createElement('p');
+    pPriority.classList.add('priority');
+    todoHeadDiv.appendChild(pPriority);
+    pPriority.innerText = todo.priority;
+    //description (+supporting div)
+    const divDescription = document.createElement('div');
+    todoContainer.appendChild(divDescription);
+    const pDescription = document.createElement('p');
+    pDescription.classList.add('todo-description');
+    divDescription.appendChild(pDescription);
+    pDescription.innerText = todo.description;
+    //dueDate (+supporting div)
+    const divDueDate = document.createElement('div');
+    todoContainer.appendChild(divDueDate);
+    const pDueDate = document.createElement('p');
+    pDueDate.classList.add('todo-duedate');
+    divDueDate.appendChild(pDueDate);
+    pDueDate.innerText = todo.dueDate;
+  };
+
+  const populateTodos = (projectTodos) => {
+    let index = 0;
+    projectTodos.forEach((todo) => {
+      createTodoHTML(todo, index);
+      index++;
+    });
+  };
 
   return { renderInitialLayout, populateProjects, populateTodos };
 })();
