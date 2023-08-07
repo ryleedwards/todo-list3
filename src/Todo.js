@@ -12,7 +12,7 @@ class Todo {
   }
   set title(newTitle) {
     if (newTitle === '') {
-      throw 'Title cannot be empty';
+      throw ' Task title cannot be empty';
     }
     this._title = newTitle;
   }
