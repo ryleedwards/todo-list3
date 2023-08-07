@@ -158,3 +158,13 @@ p.todo-duedate {
   font-size: 1.5rem;
   margin: 8px 0 0 4px;
 }
+
+.btn.addTodo {
+  width: 128px;
+}
+
+.master-todo-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
