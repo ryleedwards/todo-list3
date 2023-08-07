@@ -79,3 +79,81 @@ summary,
   margin: 0;
   font-family: 'Open Sans', sans-serif;
 }
+
+.container {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 200px 100%;
+}
+
+.sidebar {
+  background-color: rgba(255, 0, 0, 0.25);
+  display: flex;
+  flex-direction: column;
+  padding: 32px 16px 0 16px;
+  gap: 2px;
+}
+
+.side-header {
+  font-size: 2rem;
+}
+
+.project {
+  font-size: 1.25rem;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.363);
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+.main {
+  background-color: rgba(0, 0, 255, 0.25);
+  padding: 32px 0 0 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.main-header {
+  font-size: 2rem;
+}
+
+.task-container {
+  background-color: rgba(0, 0, 0, 0.363);
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  border-radius: 4px;
+  width: 80vw;
+}
+
+.task-container > div:nth-child(1) {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+}
+
+p.task-title {
+  font-size: 1.75rem;
+  font-weight: bold;
+  padding: 0 16px;
+}
+
+.task-container > div:nth-child(1) > input[type='checkbox'] {
+  height: 16px;
+  width: 16px;
+}
+
+p.priority {
+  font-style: italic;
+}
+
+p.task-description {
+  font-size: 1.25rem;
+  margin-left: 40px;
+}
+
+p.task-duedate {
+  font-size: 1.5rem;
+  margin: 8px 0 0 4px;
+}
