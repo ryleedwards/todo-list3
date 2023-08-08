@@ -11,12 +11,12 @@ const displayController = (() => {
     //sidebar + project container
     const sidebar = document.createElement('div');
     sidebar.classList.add('sidebar');
-    const sideHeader = document.createElement('div');
-    sideHeader.classList.add('side-header');
+    const sideProjects = document.createElement('div');
+    sideProjects.classList.add('side-project-container');
     const pProjectsHeader = document.createElement('p');
     pProjectsHeader.innerText = 'Projects';
-    sideHeader.appendChild(pProjectsHeader);
-    sidebar.appendChild(sideHeader);
+    sideProjects.appendChild(pProjectsHeader);
+    sidebar.appendChild(sideProjects);
     container.appendChild(sidebar);
 
     //main
@@ -47,8 +47,8 @@ const displayController = (() => {
   const createProjectHTML = (project) => {
     const projDiv = document.createElement('div');
     projDiv.classList.add('project');
-    const sideHeader = document.querySelector('.side-header');
-    sideHeader.appendChild(projDiv);
+    const sideProjects = document.querySelector('.side-project-container');
+    sideProjects.appendChild(projDiv);
 
     const pProject = document.createElement('p');
     projDiv.appendChild(pProject);
