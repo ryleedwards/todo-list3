@@ -80,6 +80,10 @@ summary,
   font-family: 'Open Sans', sans-serif;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 .btn {
   border-radius: 8px;
   border: none;
