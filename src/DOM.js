@@ -118,6 +118,7 @@ const displayController = (() => {
     const br = document.createElement('br');
     // Create form and set form parameters
     const todoForm = document.createElement('form');
+    todoForm.id = 'addTodoForm';
     todoForm.setAttribute('method', 'post');
     // Create input element for todo title
     const title = document.createElement('input');
@@ -134,7 +135,7 @@ const displayController = (() => {
     dueDate.setAttribute('type', 'date');
     dueDate.setAttribute('name', 'dueDate');
     dueDate.setAttribute('placeholder', 'Due Date (optional)');
-    // Create input element for todo dueDate
+    // Create input element for todo priority
     const priority = document.createElement('input');
     priority.setAttribute('type', 'text');
     priority.setAttribute('name', 'priority');
@@ -143,8 +144,15 @@ const displayController = (() => {
     const submit = document.createElement('input');
     submit.setAttribute('type', 'submit');
     submit.setAttribute('value', 'submit');
-    submit.addEventListener('click', (event) => {
-      event.preventDefault();
+    submit.addEventListener('click', (e) => {
+      e.preventDefault();
+    });
+    // Create cancel button to exit form
+    const cancel = document.createElement('button');
+    cancel.innerText = 'cancel';
+    cancel.addEventListener('click', (e) => {
+      e.preventDefault();
+      removeAddTodoForm();
     });
 
     // Add inputs to form
@@ -157,9 +165,17 @@ const displayController = (() => {
     todoForm.appendChild(priority);
     todoForm.appendChild(br.cloneNode());
     todoForm.appendChild(submit);
+    todoForm.appendChild(cancel);
     todoForm.appendChild(br.cloneNode());
 
     return todoForm;
+  };
+
+  const removeAddTodoForm = () => {
+    document
+      .querySelector('div.master-todo-container')
+      .removeChild(document.querySelector('#addTodoForm'));
+    document.querySelector('button.addTodo').classList.toggle('hidden');
   };
 
   const clickHandlerAddTodo = (e) => {
