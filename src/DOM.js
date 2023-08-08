@@ -111,7 +111,79 @@ const displayController = (() => {
     });
   };
 
-  return { renderInitialLayout, populateProjects, populateTodos };
+  const ingestTodoForm = (form) => {};
+
+  const createNewTodoForm = () => {
+    //linebreak element for cloning
+    const br = document.createElement('br');
+    // Create form and set form parameters
+    const todoForm = document.createElement('form');
+    todoForm.setAttribute('method', 'post');
+    // Create input element for todo title
+    const title = document.createElement('input');
+    title.setAttribute('type', 'text');
+    title.setAttribute('name', 'title');
+    title.setAttribute('placeholder', 'Title');
+    // Create input element for todo description
+    const description = document.createElement('input');
+    description.setAttribute('type', 'text');
+    description.setAttribute('name', 'description');
+    description.setAttribute('placeholder', 'Description (optional)');
+    // Create input element for todo dueDate
+    const dueDate = document.createElement('input');
+    dueDate.setAttribute('type', 'date');
+    dueDate.setAttribute('name', 'dueDate');
+    dueDate.setAttribute('placeholder', 'Due Date (optional)');
+    // Create input element for todo dueDate
+    const priority = document.createElement('input');
+    priority.setAttribute('type', 'text');
+    priority.setAttribute('name', 'priority');
+    priority.setAttribute('placeholder', 'Priority (optional)');
+    // Create submit putton
+    const submit = document.createElement('input');
+    submit.setAttribute('type', 'submit');
+    submit.setAttribute('value', 'submit');
+    submit.addEventListener('click', (event) => {
+      event.preventDefault();
+    });
+
+    // Add inputs to form
+    todoForm.appendChild(title);
+    todoForm.appendChild(br.cloneNode());
+    todoForm.appendChild(description);
+    todoForm.appendChild(br.cloneNode());
+    todoForm.appendChild(dueDate);
+    todoForm.appendChild(br.cloneNode());
+    todoForm.appendChild(priority);
+    todoForm.appendChild(br.cloneNode());
+    todoForm.appendChild(submit);
+    todoForm.appendChild(br.cloneNode());
+
+    return todoForm;
+  };
+
+  const clickHandlerAddTodo = (e) => {
+    //Hide button
+    document.querySelector('button.addTodo').classList.toggle('hidden');
+    const div = document.createElement('div');
+    document
+      .querySelector('.master-todo-container')
+      .appendChild(createNewTodoForm());
+  };
+
+  const initClickHandlers = () => {
+    console.log(document.querySelector('button.addTodo'));
+    document
+      .querySelector('button.addTodo')
+      .addEventListener('click', clickHandlerAddTodo);
+  };
+
+  return {
+    renderInitialLayout,
+    populateProjects,
+    populateTodos,
+    initClickHandlers,
+  };
 })();
 
 export { displayController };
