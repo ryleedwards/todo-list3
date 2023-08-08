@@ -80,6 +80,12 @@ summary,
   font-family: 'Open Sans', sans-serif;
 }
 
+.btn {
+  border-radius: 8px;
+  border: none;
+  padding: 4px;
+}
+
 .container {
   height: 100vh;
   display: grid;
@@ -91,11 +97,13 @@ summary,
   display: flex;
   flex-direction: column;
   padding: 32px 16px 0 24px;
-  gap: 2px;
 }
 
-.side-header {
+.side-project-container {
   font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .project {
@@ -167,4 +175,16 @@ p.todo-duedate {
   display: flex;
   flex-direction: column;
   gap: 8px;
+}
+
+/* HOVER ACTIONS */
+
+.project:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 4px;
+}
+
+.todo-container:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+  box-shadow: 1px 1px 4px;
 }
