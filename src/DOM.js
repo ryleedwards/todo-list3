@@ -32,11 +32,12 @@ const displayController = (() => {
     mainHeader.appendChild(pActiveProjectTitle);
     pActiveProjectTitle.id = 'active-project-title';
     pActiveProjectTitle.innerText = 'Active Project'; // POTENTIALLY REMOVE IN FUTURE
-
+    //parent container for todos to be inserted into
     const todosContainer = document.createElement('div');
     todosContainer.classList.add('master-todo-container');
     main.appendChild(todosContainer);
 
+    //btn to add todos
     const btnAddTodo = document.createElement('button');
     btnAddTodo.classList.add('btn', 'addTodo');
     btnAddTodo.innerText = 'Add Todo';
