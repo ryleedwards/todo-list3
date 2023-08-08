@@ -21,6 +21,10 @@ class Project {
   set todos(newTodos) {
     this._todos = newTodos;
   }
+
+  addTodo(todo) {
+    this.todos.push(todo);
+  }
 }
 
 export { Project };
