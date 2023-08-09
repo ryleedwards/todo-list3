@@ -40,7 +40,18 @@ const session = (() => {
     currentProject = projects[projectIndex];
   };
 
-  return { projects, currentProject };
+  const addTodo = (project, formData) => {
+    const todo = new Todo(
+      formData.get('title'),
+      formData.get('description'),
+      formData.get('dueDate'),
+      formData.get('priority')
+    );
+    project.addTodo(todo);
+    console.log(project);
+  };
+
+  return { projects, currentProject, changeProject, addTodo };
 })();
 
 export { session };

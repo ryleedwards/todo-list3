@@ -160,6 +160,7 @@ const displayController = (() => {
       }
       // Passes checks >> execute form data ingest
       ingestTodoForm(todoForm);
+      removeAddTodoForm();
     });
     // Create cancel button to exit form
     const cancel = document.createElement('button');
@@ -187,13 +188,10 @@ const displayController = (() => {
 
   const ingestTodoForm = (form) => {
     const formData = new FormData(form);
-    const todo = new Todo(
-      formData.get('title'),
-      formData.get('description'),
-      formData.get('dueDate'),
-      formData.get('priority')
-    );
-    console.log(todo);
+    session.addTodo(session.currentProject, formData);
+    const todoIndex = session.currentProject.todos.length - 1;
+    console.log(`todoIndex = ${todoIndex}`);
+    createTodoHTML(session.currentProject.todos[todoIndex], todoIndex);
   };
 
   const removeAddTodoForm = () => {
