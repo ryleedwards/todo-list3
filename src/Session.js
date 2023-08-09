@@ -32,7 +32,6 @@ const session = (() => {
   );
   projects.push(testProj1);
   projects.push(testProj2);
-  console.log(projects);
 
   return { projects };
 })();
