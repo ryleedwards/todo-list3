@@ -111,8 +111,6 @@ const displayController = (() => {
     });
   };
 
-  const ingestTodoForm = (form) => {};
-
   const createNewTodoForm = () => {
     //linebreak element for cloning
     const br = document.createElement('br');
@@ -171,6 +169,8 @@ const displayController = (() => {
     return todoForm;
   };
 
+  const ingestTodoForm = (form) => {};
+
   const removeAddTodoForm = () => {
     document
       .querySelector('div.master-todo-container')
@@ -188,7 +188,6 @@ const displayController = (() => {
   };
 
   const initClickHandlers = () => {
-    console.log(document.querySelector('button.addTodo'));
     document
       .querySelector('button.addTodo')
       .addEventListener('click', clickHandlerAddTodo);
