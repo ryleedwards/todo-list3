@@ -48,7 +48,6 @@ const session = (() => {
       formData.get('priority')
     );
     project.addTodo(todo);
-    console.log(project);
   };
 
   return { projects, currentProject, changeProject, addTodo };
