@@ -1,5 +1,6 @@
 import { Todo } from './Todo';
 import { Project } from './Project';
+import { session } from './Session';
 
 const displayController = (() => {
   const renderInitialLayout = () => {
