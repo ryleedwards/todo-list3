@@ -145,6 +145,21 @@ const displayController = (() => {
     submit.setAttribute('value', 'submit');
     submit.addEventListener('click', (e) => {
       e.preventDefault();
+      // FORM VALIDATION
+      // Is title input blank? >> throw error & exit
+      if (title.value === '') {
+        // Has error msg been shown already? >> add, otherwise prevent dupe msg & exit
+        if (!document.querySelector('label.error.title-empty')) {
+          const titleError = document.createElement('label');
+          titleError.classList.add('error', 'title-empty');
+          titleError.innerText = 'Todo must be given a valid title';
+          todoForm.appendChild(titleError);
+          return;
+        }
+        return;
+      }
+      // Passes checks >> execute form data ingest
+      ingestTodoForm(todoForm);
     });
     // Create cancel button to exit form
     const cancel = document.createElement('button');
@@ -170,7 +185,16 @@ const displayController = (() => {
     return todoForm;
   };
 
-  const ingestTodoForm = (form) => {};
+  const ingestTodoForm = (form) => {
+    const formData = new FormData(form);
+    const todo = new Todo(
+      formData.get('title'),
+      formData.get('description'),
+      formData.get('dueDate'),
+      formData.get('priority')
+    );
+    console.log(todo);
+  };
 
   const removeAddTodoForm = () => {
     document
