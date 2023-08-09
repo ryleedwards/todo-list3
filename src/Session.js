@@ -33,7 +33,14 @@ const session = (() => {
   projects.push(testProj1);
   projects.push(testProj2);
 
-  return { projects };
+  // current working project creation & assignment
+  let currentProject = projects[0];
+
+  const changeProject = (projectIndex) => {
+    currentProject = projects[projectIndex];
+  };
+
+  return { projects, currentProject };
 })();
 
 export { session };
