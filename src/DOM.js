@@ -1,6 +1,7 @@
 import { Todo } from './Todo';
 import { Project } from './Project';
 import { session } from './Session';
+import { format } from 'date-fns';
 
 const displayController = (() => {
   const renderInitialLayout = () => {
@@ -101,7 +102,7 @@ const displayController = (() => {
     const pDueDate = document.createElement('p');
     pDueDate.classList.add('todo-duedate');
     divDueDate.appendChild(pDueDate);
-    pDueDate.innerText = todo.dueDate;
+    pDueDate.innerText = format(todo.dueDate, 'PPPP');
   };
 
   const populateTodos = (projectTodos) => {
@@ -190,7 +191,6 @@ const displayController = (() => {
     const formData = new FormData(form);
     session.addTodo(session.currentProject, formData);
     const todoIndex = session.currentProject.todos.length - 1;
-    console.log(`todoIndex = ${todoIndex}`);
     createTodoHTML(session.currentProject.todos[todoIndex], todoIndex);
   };
 
