@@ -1,3 +1,5 @@
+import { format } from 'date-fns';
+
 class Todo {
   constructor(title, description, dueDate, priority) {
     this.title = title;
@@ -31,7 +33,7 @@ class Todo {
   }
 
   set dueDate(newDueDate) {
-    this._dueDate = newDueDate;
+    this._dueDate = new Date(newDueDate);
   }
 
   // Priority getters and setters
