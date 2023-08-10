@@ -3,6 +3,7 @@ import { Todo } from './Todo';
 
 const session = (() => {
   const projects = [];
+  let activeProject = 0;
   function populateTestData() {
     // TEST DATA
     const testProj1 = new Project('My first project');
@@ -36,13 +37,6 @@ const session = (() => {
   }
   populateTestData();
 
-  // current working project creation & assignment
-  let activeProject = 0;
-
-  const changeActiveProject = (projectIndex) => {
-    activeProject = projectIndex;
-  };
-
   const addTodo = (project, formData) => {
     const todo = new Todo(
       formData.get('title'),
@@ -53,7 +47,7 @@ const session = (() => {
     project.addTodo(todo);
   };
 
-  return { projects, activeProject, changeActiveProject, addTodo };
+  return { projects, activeProject, addTodo };
 })();
 
 export { session };
