@@ -64,6 +64,7 @@ const displayController = (() => {
   };
 
   const projectClickHandler = (e) => {
+    //Determine which project was clicked, handle whether it was div or p clicked
     let projIndex = '';
     if (e.target.tagName === 'P') {
       projIndex = e.target.parentElement.dataset.index;
@@ -72,7 +73,9 @@ const displayController = (() => {
       projIndex = e.target.dataset.index;
     }
     clearTodos();
-
+    // Change active project in session
+    session.activeProject = projIndex;
+    // Populate todos of new project
     populateTodos(session.projects[session.activeProject].todos);
   };
 
