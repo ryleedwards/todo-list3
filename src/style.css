@@ -186,6 +186,7 @@ p.todo-duedate {
 .project:hover {
   background-color: rgba(0, 0, 0, 0.5);
   box-shadow: 1px 1px 4px;
+  cursor: pointer;
 }
 
 .todo-container:hover {

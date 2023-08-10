@@ -71,7 +71,18 @@ const displayController = (() => {
     if (e.target.tagName === 'DIV') {
       projIndex = e.target.dataset.index;
     }
-    console.log(projIndex);
+    clearTodos();
+    session.changeActiveProject(projIndex);
+    populateTodos(session.projects[session.activeProject].todos);
+  };
+
+  const clearTodos = () => {
+    const masterTodoContainer = document.querySelector(
+      '.master-todo-container'
+    );
+    while (masterTodoContainer.firstChild) {
+      masterTodoContainer.removeChild(masterTodoContainer.lastChild);
+    }
   };
 
   const populateProjects = (projectList) => {
@@ -208,9 +219,9 @@ const displayController = (() => {
 
   const ingestTodoForm = (form) => {
     const formData = new FormData(form);
-    session.addTodo(session.currentProject, formData);
-    const todoIndex = session.currentProject.todos.length - 1;
-    createTodoHTML(session.currentProject.todos[todoIndex], todoIndex);
+    session.addTodo(session.activeProject, formData);
+    const todoIndex = session.activeProject.todos.length - 1;
+    createTodoHTML(session.activeProject.todos[todoIndex], todoIndex);
   };
 
   const removeAddTodoForm = () => {

@@ -6,5 +6,5 @@ import { session } from './Session';
 
 displayController.renderInitialLayout();
 displayController.populateProjects(session.projects);
-displayController.populateTodos(session.projects[0].todos);
+displayController.populateTodos(session.projects[session.activeProject].todos);
 displayController.initClickHandlers();
