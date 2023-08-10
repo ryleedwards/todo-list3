@@ -72,7 +72,7 @@ const displayController = (() => {
       projIndex = e.target.dataset.index;
     }
     clearTodos();
-    session.changeActiveProject(projIndex);
+
     populateTodos(session.projects[session.activeProject].todos);
   };
 
