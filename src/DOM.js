@@ -57,11 +57,21 @@ const displayController = (() => {
     projDiv.appendChild(pProject);
     pProject.innerText = project.title;
 
-    // Assign click listener for switching projects
+    // Assign click listener for selecting project
+    projDiv.addEventListener('click', (e) => {
+      projectClickHandler(e);
+    });
   };
 
   const projectClickHandler = (e) => {
-    console.log(e.target);
+    let projIndex = '';
+    if (e.target.tagName === 'P') {
+      projIndex = e.target.parentElement.dataset.index;
+    }
+    if (e.target.tagName === 'DIV') {
+      projIndex = e.target.dataset.index;
+    }
+    console.log(projIndex);
   };
 
   const populateProjects = (projectList) => {
