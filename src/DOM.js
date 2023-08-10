@@ -219,9 +219,12 @@ const displayController = (() => {
 
   const ingestTodoForm = (form) => {
     const formData = new FormData(form);
-    session.addTodo(session.activeProject, formData);
-    const todoIndex = session.activeProject.todos.length - 1;
-    createTodoHTML(session.activeProject.todos[todoIndex], todoIndex);
+    session.addTodo(session.projects[session.activeProject], formData);
+    const todoIndex = session.projects[session.activeProject].todos.length - 1;
+    createTodoHTML(
+      session.projects[session.activeProject].todos[todoIndex],
+      todoIndex
+    );
   };
 
   const removeAddTodoForm = () => {
