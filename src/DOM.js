@@ -46,20 +46,29 @@ const displayController = (() => {
     main.appendChild(btnAddTodo);
   };
 
-  const createProjectHTML = (project) => {
+  const createProjectHTML = (project, index) => {
     const projDiv = document.createElement('div');
     projDiv.classList.add('project');
     const sideProjects = document.querySelector('.side-project-container');
     sideProjects.appendChild(projDiv);
+    projDiv.dataset.index = index;
 
     const pProject = document.createElement('p');
     projDiv.appendChild(pProject);
     pProject.innerText = project.title;
+
+    // Assign click listener for switching projects
+  };
+
+  const projectClickHandler = (e) => {
+    console.log(e.target);
   };
 
   const populateProjects = (projectList) => {
+    let i = 0;
     projectList.forEach((project) => {
-      createProjectHTML(project);
+      createProjectHTML(project, i);
+      i++;
     });
   };
 
